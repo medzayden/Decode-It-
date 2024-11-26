@@ -15,7 +15,7 @@ public class SetRandomCard : MonoBehaviour
     [SerializeField] private TMP_Text wordDisplay;
 
 
-    public string[] colors = { "Red", "Blue", "White", "Black" };
+    public List<string> colors = new List<string> { "Red", "Blue", "White", "Black" };
     [SerializeField] private CardInfo cardInfo;
 
     private void Start()
@@ -29,9 +29,16 @@ public class SetRandomCard : MonoBehaviour
     public void SetRandomColor()
     {
 
-        int randomIndex = Random.Range(0, colors.Length);
+        int randomIndex = Random.Range(0, colors.Count);
         cardInfo.Color = colors[randomIndex];
+        if( colors[randomIndex] == "Black")
+        {
+            colors.Remove("Black");
+            Debug.Log("Black Removed");
+
+        }
         Debug.Log(colors[randomIndex]);
+
 
     }
     void SetRandomWord()
@@ -39,6 +46,7 @@ public class SetRandomCard : MonoBehaviour
         int randomIndex = Random.Range(0, wordList.words.Count);
         cardInfo.Word = wordList.words[randomIndex];
         Debug.Log(wordList.words[randomIndex]);
+        wordDisplay.text = wordList.words[randomIndex];
     }
 
     void LoadWordList()
