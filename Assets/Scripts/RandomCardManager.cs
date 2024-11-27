@@ -28,9 +28,13 @@ public class RandomCardManager : MonoBehaviour
         LoadWordList();
         SetRandomWord();
     }
-  
 
-     void SetRandomColor()
+    private void Start()
+    {
+        
+    }
+
+    void SetRandomColor()
     {
         if (Cards.Count != 25)
         {
