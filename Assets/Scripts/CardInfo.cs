@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardInfo : ScriptableObject
 {
     public string Word;
-    public string Color;
+    public Color Color;
 
 
 }

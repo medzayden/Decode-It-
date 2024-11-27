@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd459bee6bcf79d4ab3c4ecc10fd6d39, type: 3}
   m_Name: Random Card
   m_EditorClassIdentifier: 
-  Name: 
-  Color: 
-  sprite: {fileID: 0}
+  Word: 
+  Color: {r: 0, g: 0, b: 0, a: 1}
