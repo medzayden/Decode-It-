@@ -4,26 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public enum CardColor { Red,Blue,Black,White}
+
 public class CardSettingsSave : MonoBehaviour
 {
-    public Color color;
+    public CardColor cardColor;
     public string word;
-    public  Image image;
-    TextMeshProUGUI textMesh;
-
-    public void Start()
-    {
-        image = GetComponent<Image>();
-        textMesh = GetComponentInChildren<TextMeshProUGUI>();
-        GetCardInfo();
-    }
-    public void Update()
-    {
-        
-    }
-    public void GetCardInfo()
-    {
-        color = image.color;
-        word = textMesh.text;
-    }
+     
+    
+    
 }

@@ -13,7 +13,7 @@ public class RandomCardManager : MonoBehaviour
 {
     public WordList wordList;
     public TextAsset wordListJsonFile; // Public TextAsset to hold the JSON file
-
+  
 
 
     [SerializeField] private List<GameObject> Cards = new List<GameObject>();
@@ -43,13 +43,13 @@ public class RandomCardManager : MonoBehaviour
         }
 
         // List of the card colors based on your specified quantities
-        List<Color> cardColors = new List<Color>();
+        List<CardColor> cardColors = new List<CardColor>();
 
         // Add colors according to the quantities
-        for (int i = 0; i < 7; i++) cardColors.Add(Color.red);    // 7 red
-        for (int i = 0; i < 8; i++) cardColors.Add(Color.blue);   // 8 blue
-        for (int i = 0; i < 9; i++) cardColors.Add(Color.white);  // 9 white
-        cardColors.Add(Color.black);  // 1 black
+        for (int i = 0; i < 8; i++) cardColors.Add(CardColor.Red);    // 8 red
+        for (int i = 0; i < 9; i++) cardColors.Add(CardColor.Blue);   // 9 blue
+        for (int i = 0; i < 7; i++) cardColors.Add(CardColor.White);  // 7 white
+        cardColors.Add(CardColor.Black);  // 1 black
 
         // Shuffle the list of colors randomly to apply them in random order
         Shuffle(cardColors);
@@ -57,10 +57,11 @@ public class RandomCardManager : MonoBehaviour
         // Now assign colors to the cards
         for (int i = 0; i < Cards.Count; i++)
         {
-            Image image = Cards[i].GetComponent<Image>();
-            if (image != null)
+          //  Image image = 
+            CardSettingsSave cardSave = Cards[i].GetComponent<CardSettingsSave>();
+            if (cardSave != null)
             {
-                image.color = cardColors[i];
+                cardSave.cardColor = cardColors[i];
             }
         }
     }
@@ -71,11 +72,14 @@ public class RandomCardManager : MonoBehaviour
         // Now assign each word to the corresponding card's TextMeshProUGUI component
         for (int i = 0; i < Cards.Count; i++)
         {
+            CardSettingsSave cardSave = Cards[i].GetComponent<CardSettingsSave>();
             GameObject card = Cards[i];
             TextMeshProUGUI textMesh = card.GetComponentInChildren<TextMeshProUGUI>();
             if (textMesh != null)
             {
                 textMesh.text = wordList.words[i];
+              cardSave.word = textMesh.text;
+
             }
         }
     }
