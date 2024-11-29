@@ -29,10 +29,7 @@ public class RandomCardManager : MonoBehaviour
         SetRandomWord();
     }
 
-    private void Start()
-    {
-        
-    }
+    
 
     void SetRandomColor()
     {

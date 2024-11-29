@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public enum Team {Null, Red, Blue }
@@ -24,6 +25,7 @@ public class TeamManager : MonoBehaviour
         Player.instance.team = Team.Blue;
         Debug.Log("joined!!!!!! Blue");
         blueTeam.Add(Player.instance);
+       
     }
     public void GetRoleOperative()
     {
